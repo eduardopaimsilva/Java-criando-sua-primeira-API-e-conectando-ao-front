@@ -49,7 +49,7 @@ public class Principal {
                     System.out.println("Saindo...");
                     break;
                 default:
-                    System.out.println("Opção inválida kkkkk");
+                    System.out.println("Opção inválida");
             }
         }
     }

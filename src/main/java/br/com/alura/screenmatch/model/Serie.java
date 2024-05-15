@@ -1,6 +1,9 @@
 package br.com.alura.screenmatch.model;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of d2849af (Usando o Chat GPT para traduzir a sinopse)
 import com.fasterxml.jackson.annotation.JsonAlias;
 
 import java.util.OptionalDouble;
@@ -23,7 +26,11 @@ public class Serie {
         this.genero = Categoria.fromString(dadosSerie.genero().split(",")[0].trim());
         this.atores = dadosSerie.atores();
         this.poster = dadosSerie.poster();
+<<<<<<< HEAD
 //        this.sinopse = ConsultaChatGPT.obterTraducao(dadosSerie.sinopse()).trim();
+=======
+        this.sinopse = dadosSerie.sinopse();
+>>>>>>> parent of d2849af (Usando o Chat GPT para traduzir a sinopse)
     }
 
     public String getTitulo() {

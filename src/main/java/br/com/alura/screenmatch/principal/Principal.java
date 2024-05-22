@@ -40,7 +40,8 @@ public class Principal {
                     4 - Busca série por titulo
                     5 - Busca Séries por ator
                     6 - Top 5 Séries
-                    7 - Buscar séries por categoria;      
+                    7 - Buscar séries por categoria
+                    8 - Filtrar séries     
                     0 - Sair                                 
                     """;
 
@@ -69,6 +70,9 @@ public class Principal {
                     break;
                 case 7:
                     buscarSeriesPorCategoria();
+                    break;
+                case 8:
+                    filtrarSeriesPorTemporadaEAvaliacao();
                     break;
                 case 0:
                     System.out.println("Saindo...");
@@ -108,7 +112,7 @@ public class Principal {
 
             List<DadosTemporada> temporadas = new ArrayList<>();
 
-            for (int i = 1; i <= serieEncontrada.getTotalTemporada(); i++) {
+            for (int i = 1; i <= serieEncontrada.getTotalTemporadas(); i++) {
                 var json = consumo.obterDados(ENDERECO + serieEncontrada.getTitulo().replace(" ", "+") + "&season=" + i + API_KEY);
                 DadosTemporada dadosTemporada = conversor.obterDados(json, DadosTemporada.class);
                 temporadas.add(dadosTemporada);
@@ -171,4 +175,16 @@ public class Principal {
         seriesPorCategoria.forEach(System.out::println);
     }
 
+    private void filtrarSeriesPorTemporadaEAvaliacao(){
+        System.out.println("Filtrar séries até quantas temporadas? ");
+        var totalTemporadas = leitura.nextInt();
+        leitura.nextLine();
+        System.out.println("Com avaliação a partir de que valor? ");
+        var avaliacao = leitura.nextDouble();
+        leitura.nextLine();
+        List<Serie> filtroSeries = repository.seriesPorTemporadaEAvaliacao(totalTemporadas, avaliacao);
+        System.out.println("*** Séries filtradas ***");
+        filtroSeries.forEach(s ->
+                System.out.println(s.getTitulo() + "  - avaliação: " + s.getAvaliacao()));
+    }
 }

@@ -43,7 +43,7 @@ public class Principal {
                     5 - Busca Séries por ator
                     6 - Top 5 Séries
                     7 - Buscar séries por categoria
-                    8 - Filtrar séries
+                    8 - Filtrar sériesd
                     9- buscar episodio por trecho
                     10 - top episodios por serie
                     11 - busca episódio a partir de uma data  

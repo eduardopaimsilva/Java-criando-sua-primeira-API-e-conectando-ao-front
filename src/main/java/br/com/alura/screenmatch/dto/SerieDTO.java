@@ -4,10 +4,10 @@ import br.com.alura.screenmatch.model.Categoria;
 
 public record SerieDTO(Long id,
                        String titulo,
-                       Integer totalTemporada,
+                       Integer totalTemporadas,
                        Double avaliacao,
                        Categoria genero,
-                       String ators,
+                       String atores,
                        String poster,
                        String sinopse) {
 }
